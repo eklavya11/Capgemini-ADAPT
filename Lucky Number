@@ -1,0 +1,89 @@
+import java.io.*;
+import java.util.*;
+public class Source{
+     public static int checkRegistrationNumber(String abc){
+            if(abc==null||abc.isEmpty()){
+                return -1;
+            }
+            int ans = -1;
+           
+                if(abc.startsWith("KA")||abc.startsWith("DL")){
+                    String str = "";
+                    str=str+abc.charAt(2)+abc.charAt(3);
+                    int a = Integer.parseInt(str);
+                    if(a>=1 && a<=10){
+                        if(abc.length()==10){
+                            if((abc.charAt(4)>='A'&&abc.charAt(4)<='Z')&&(abc.charAt(5)>='A'&&abc.charAt(5)<='Z')){
+                                String xyz ="";
+                                xyz = xyz + abc.charAt(6)+abc.charAt(7)+abc.charAt(8)+abc.charAt(9);
+                                int b = Integer.parseInt(xyz);
+                                if(b>=1000&&b<=9999){
+                                    int sum=0;
+                                    while(b>0){
+                                        int rem = b%10;
+                                        sum=sum+rem;
+                                        b=b/10;
+                                    }
+                                    int sum1=0;
+                                    while(sum>0){
+                                        int rem = sum%10;
+                                        sum1=sum1+rem;
+                                        sum=sum/10;
+                                    }
+                                    
+                                    if(sum1==6){
+                                        ans =1;
+                                    }
+                                    else{
+                                        ans=0;
+                                    }
+                                }
+                            }
+                            
+                    }
+                    else if(abc.length()==9){
+                            if(abc.charAt(4)>='A'&&abc.charAt(4)<='Z'){
+                                String xyz ="";
+                                xyz=xyz+abc.charAt(5)+abc.charAt(6)+abc.charAt(7)+abc.charAt(8);
+                                int b = Integer.parseInt(xyz);
+                                if(b>=1000&&b<=9999){
+                                    int sum=0;
+                                    while(b>0){
+                                        int rem = b%10;
+                                        sum=sum+rem;
+                                        b=b/10;
+                                    }
+                                    int sum1=0;
+                                    while(sum>0){
+                                        int rem = sum%10;
+                                        sum1=sum1+rem;
+                                        sum=sum/10;
+                                    }
+                                    
+                                    if(sum1==6){
+                                        ans =1;
+                                    }
+                                    else{
+                                        ans=0;
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    
+                }
+                
+    }
+    return ans;
+    }
+
+    public static void main(String[] args)throws NullPointerException{
+        
+
+       
+        }
+        
+    
+    }
+    
+    
